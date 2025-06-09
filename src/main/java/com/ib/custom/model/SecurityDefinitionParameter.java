@@ -20,4 +20,17 @@ public class SecurityDefinitionParameter {
         this.Expirations = expirations;
         this.Strikes = strikes;
     }
+
+    @Override
+    public String toString() {
+        return "SecurityDefinitionParameter{" +
+                "ReqId=" + ReqId +
+                ", Exchange='" + Exchange + '\'' +
+                ", UnderlyingConId=" + UnderlyingConId +
+                ", TradingClass='" + TradingClass + '\'' +
+                ", Multiplier='" + Multiplier + '\'' +
+                ", Expirations=" + Expirations.size() +
+                ", Strikes=" + Strikes.size() +
+                '}';
+    }
 }
