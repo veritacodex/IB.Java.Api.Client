@@ -5,6 +5,7 @@ import com.ib.custom.handler.ContractHandler;
 import com.ib.custom.handler.MarketDataHandler;
 import com.ib.custom.handler.OptionParametersHandler;
 import com.ib.custom.handler.PortfolioHandler;
+import com.ib.custom.helper.ConsoleHelper;
 
 import java.util.List;
 import java.util.Map;
@@ -104,7 +105,7 @@ public class IbClient implements EWrapper {
 
     //region [ContractDetails]
     public CompletableFuture<List<ContractDetails>> getContractDetails(int reqId, Contract contract) {
-        System.out.println("Requesting contract details for:" +
+        ConsoleHelper.print("Requesting contract details for:" +
                 contract.symbol() + " Trading class:" + contract.tradingClass() + " Currency:" +
                 contract.currency() + " Exchange:" + contract.exchange() + " SecType:" + contract.secType());
         CompletableFuture<List<ContractDetails>> future = startContractDetailsRequest(reqId, contract);
@@ -171,7 +172,7 @@ public class IbClient implements EWrapper {
     @Override
     public void openOrder(int orderId, Contract contract, Order order, OrderState orderState) {
         if (order.whatIf()) {
-            System.out.println("WhatIf Order:" + orderId);
+            ConsoleHelper.print("WhatIf Order received:" + orderId);
         }
     }
     //endregion
