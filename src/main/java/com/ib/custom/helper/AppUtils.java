@@ -5,9 +5,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class AppUtils {
-    public static String findFirstFutureDate(Collection<String> dates) {
+    public static String findFirstFutureDate(Collection<String> dates, long daysToAdd) {
         LocalDate today = LocalDate.now();
-        LocalDate minFutureDate = today.plusDays(7);
+        LocalDate minFutureDate = today.plusDays(daysToAdd);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
 
         return dates.stream()
